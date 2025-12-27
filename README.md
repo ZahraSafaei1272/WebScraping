@@ -42,3 +42,27 @@ gunzip title.basics.tsv.gz
 mv title.basics.tsv data/
 
 ```
+## How to Run 
+**1. Scrape movie titles and links**
+```bash
+python TitleLinkExtraction.py
+
+```
+**2. Extract genres**
+```bash
+python extract_genres.py
+
+
+```
+**3. Scrape detailed movie data**
+```bash
+python InfoMoviesExtraction.py
+
+```
+
+The final output will be saved as:
+```bash
+movies_data.csv
+```
+
+
