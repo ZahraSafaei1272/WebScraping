@@ -9,6 +9,17 @@ and popularity metrics.
 - Extracts genres from the official IMDb dataset (title.basics.tsv)
 - Scrapes movie details (budget, worldwide gross, runtime, ratings and vote counts)
 - Computes popularity scores for actors and directors
+
+   For each actor/director:
+
+  - The “Known For” section on the actor’s IMDb page is scraped
+
+  - Star ratings of the listed movies are extracted
+
+  - The actor/director’s popularity score is computed as the mean of these ratings
+
+  - This score is used as a proxy for actor popularity and cached locally to avoid repeated scraping.
+  
 - Uses SQLite for caching and resumable scraping
 - Exports the final dataset to CSV
 
