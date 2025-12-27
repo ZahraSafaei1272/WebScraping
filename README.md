@@ -5,9 +5,40 @@ The result is a structured dataset containing movie metadata, financial data, ra
 and popularity metrics.
 
 ## Features
-**Scrapes IMDb movie titles and links using Selenium**
-**Extracts genres from the official IMDb dataset (title.basics.tsv)**
-**Scrapes movie details (budget, worldwide gross, runtime)**
-**Computes popularity scores for actors and directors**
-**Uses SQLite for caching and resumable scraping**
-**Exports the final dataset to CSV**
+- Scrapes IMDb movie titles and links using Selenium
+- Extracts genres from the official IMDb dataset (title.basics.tsv)
+- Scrapes movie details (budget, worldwide gross, runtime, ratings and vote counts)
+- Computes popularity scores for actors and directors
+- Uses SQLite for caching and resumable scraping
+- Exports the final dataset to CSV
+
+## Project Structure
+```bash
+.
+├── TitleLinkExtraction.py      # Scrape IMDb movie titles and links
+├── extract_genres.py           # Extract genres using IMDb datasets
+├── InfoMoviesExtraction.py    # Scrape detailed movie information
+├── data/                       # IMDb datasets (not tracked by git)
+├── movies.db                  # SQLite cache (auto-generated)
+├── *.csv                      # Generated outputs
+└── README.md
+
+```
+
+## IMDb Datasets (Required)
+This project depends on official IMDb datasets, which **must be downloaded manually**.
+
+Download from:
+[IMDb public datasets](https://datasets.imdbws.com/)
+
+Required files:
+
+- `title.basics.tsv.gz`
+
+Extract them into a local `data/` directory:
+```bash
+mkdir data
+gunzip title.basics.tsv.gz
+mv title.basics.tsv data/
+
+```
